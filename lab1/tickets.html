@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/tickets.css">
+    <title>My tickets</title>
+</head>
+<body>
+    <header id="header" class="header">
+        <div id="header-container" class="header-container">
+            <nav class="navigation-desktop">
+                <div class="navigation-links-desktop">
+                    <a class="navigation-link-desktop" href="index.html">Events</a>
+                    <a class="navigation-link-desktop" href="about.html">About</a>
+                    <a class="navigation-link-desktop" href="tickets.html">My tickets</a>
+                </div>
+            </nav>
+            <nav class="navigation-mobile">
+                <img src="media/icons/menu-icon2.svg" alt="" class="navigation-button-menu" id="menuButton">
+                <img src="media/icons/cancel-icon1.svg" alt="" class="navigation-button-cancel" id="cancelButton">
+                <div class="navigation-links-mobile" id="navigationLinksMobile">
+                    <a class="navigation-link-mobile" href="index.html">Events</a>
+                    <a class="navigation-link-mobile" href="about.html">About</a>
+                    <a class="navigation-link-mobile" href="tickets.html">My tickets</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div>
+                <h1 class="main-title">My tickets</h1>
+            </div>
+            <section class="tickets">
+                <div class="ticket">
+                    <div class="ticket-img-container">
+                        <img class="ticket-img" src="https://storage.concert.ua/JU9/8/rk/67cc0a5145251/5253.jpg:31-catalog-event_item-desktop2x" alt="">
+                    </div>
+                    <div class="ticket-detail-container">
+                        <span class="ticket-location">Kyiv,<br>Palace of sports</span>
+                        <h2 class="ticket-title">Dorofeeva</h2>
+                        <span class="ticket-date">12 April 19:00, Sat</span>
+                        <span class="ticket-price">590 ₴</span>
+                    </div>
+                </div>
+                <div class="ticket">
+                    <div class="ticket-img-container">
+                        <img class="ticket-img" src="https://storage.concert.ua/JU9/4/e0/67a1d9f8f2c4a/2c4e.jpg:31-catalog-event_item-desktop2x" alt="">
+                    </div>
+                    <div class="ticket-detail-container">
+                        <span class="ticket-location">Kyiv,<br>Palace of sports</span>
+                        <h2 class="ticket-title">Monatik</h2>
+                        <span class="ticket-date">20 September, Sat</span>
+                        <span class="ticket-price">300 ₴</span>
+                    </div>
+                </div>
+                <div class="ticket">
+                    <div class="ticket-img-container">
+                        <img class="ticket-img" src="https://storage.concert.ua/JU9/31/HP/679c9d97382b5/82b8.jpg:31-catalog-event_item-desktop2x" alt="">
+                    </div>
+                    <div class="ticket-detail-container">
+                        <span class="ticket-location">Lviv,<br>!FESTrepublic territory</span>
+                        <h2 class="ticket-title">Zhadan i sobaky</h2>
+                        <span class="ticket-date">03 May 18:00, Sat</span>
+                        <span class="ticket-price">490 ₴</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <span class="footer-data">
+                <p class="footer-data-text">tickets.buy@hotmail.com</p>
+                <div class="vl"></div>
+                <p class="footer-data-text">+380981234567</p>
+            </span>
+            <span class="footer-underwrite">
+                <p class="footer-underwrite-text">© 2025 All rights reserved</p>
+            </span>
+        </div>
+    </footer>
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const cancelButton = document.getElementById("cancelButton");
+        const navigationLinksMobile = document.getElementById("navigationLinksMobile");
+        
+        menuButton.addEventListener("click", function () {
+            navigationLinksMobile.classList.add("active");
+            menuButton.style.display = "none";
+            cancelButton.style.display = "flex";
+            navigationLinksMobile.style.top = "0";
+        });
+        
+        cancelButton.addEventListener("click", function () {
+            navigationLinksMobile.classList.remove("active");
+            menuButton.style.display = "flex";
+            cancelButton.style.display = "none";
+            navigationLinksMobile.style.top = "-100%";
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!navigationLinksMobile.contains(event.target) && !menuButton.contains(event.target)) {
+                navigationLinksMobile.style.top = "-100%";
+                menuButton.style.display = "flex";
+                cancelButton.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
