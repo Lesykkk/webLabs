@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <title>About</title>
+</head>
+<body>
+    <header id="header" class="header">
+        <div id="header-container" class="header-container">
+            <nav class="navigation-desktop">
+                <div class="navigation-links-desktop">
+                    <a class="navigation-link-desktop" href="index.html">Events</a>
+                    <a class="navigation-link-desktop" href="about.html">About</a>
+                    <a class="navigation-link-desktop" href="tickets.html">My tickets</a>
+                </div>
+            </nav>
+            <nav class="navigation-mobile">
+                <img src="media/icons/menu-icon2.svg" alt="" class="navigation-button-menu" id="menuButton">
+                <img src="media/icons/cancel-icon1.svg" alt="" class="navigation-button-cancel" id="cancelButton">
+                <div class="navigation-links-mobile" id="navigationLinksMobile">
+                    <a class="navigation-link-mobile" href="index.html">Events</a>
+                    <a class="navigation-link-mobile" href="about.html">About</a>
+                    <a class="navigation-link-mobile" href="tickets.html">My tickets</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div>
+                <h1 class="main-title">About us</h1>
+            </div>
+            <section class="about">
+                <span class="about-text">
+                    Welcome! We are a team of 15 professionals who are united by a common goal: to create high-quality, efficient and creative solutions for our clients.
+                    Our team is a combination of experience, innovative thinking and a real passion for what we do. We work in different areas, complementing each other with knowledge and skills to ensure the best possible result.
+                    In our work, we are guided by the principles of openness, reliability and responsibility. For us, each project is an opportunity to implement ideas that make the world a better place. We value the trust of our clients and always strive to exceed their expectations.
+                    Through teamwork, creativity and continuous development, we help our clients reach new heights.
+                    Join us - together we will create something truly unique!
+                </span>
+                <img class="about-img" src="https://img.freepik.com/free-photo/three-collegues-working-car-showroom_1303-17425.jpg?t=st=1742250354~exp=1742253954~hmac=2b0522efa07c9ab4101332a842c6bf4b40ef59861224a38cd9be9f3196e276c3&w=1380" alt="">
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <span class="footer-data">
+                <p class="footer-data-text">tickets.buy@hotmail.com</p>
+                <div class="vl"></div>
+                <p class="footer-data-text">+380981234567</p>
+            </span>
+            <span class="footer-underwrite">
+                <p class="footer-underwrite-text">© 2025 All rights reserved</p>
+            </span>
+        </div>
+    </footer>
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const cancelButton = document.getElementById("cancelButton");
+        const navigationLinksMobile = document.getElementById("navigationLinksMobile");
+        
+        menuButton.addEventListener("click", function () {
+            navigationLinksMobile.classList.add("active");
+            menuButton.style.display = "none";
+            cancelButton.style.display = "flex";
+            navigationLinksMobile.style.top = "0";
+        });
+        
+        cancelButton.addEventListener("click", function () {
+            navigationLinksMobile.classList.remove("active");
+            menuButton.style.display = "flex";
+            cancelButton.style.display = "none";
+            navigationLinksMobile.style.top = "-100%";
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!navigationLinksMobile.contains(event.target) && !menuButton.contains(event.target)) {
+                navigationLinksMobile.style.top = "-100%";
+                menuButton.style.display = "flex";
+                cancelButton.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
